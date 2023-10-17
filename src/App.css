@@ -1,0 +1,173 @@
+.order {
+  display: flex;
+  justify-content: space-around;
+}
+
+.grid-display {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+.card {
+  transition: 0.3s;
+  height: 420px;
+  width: 240px;
+  border-radius: 10px;
+  margin: 20px 20px;
+  border: 1px solid rgb(235, 233, 233);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.image-card {
+  border-radius: 10px;
+  width: 240px;
+  height: 300px;
+}
+
+.rs-icon {
+  height: .7em;
+}
+
+.navig {
+  display: block;
+  list-style-type: none;
+  background-color: #f7f7f7;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 0;
+  height: 35px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.nav-itm1{
+  float: left;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  margin-right: 20px;
+}
+
+.nav-itm{
+  float: left;
+  cursor: pointer;
+  font-size: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  margin: 0;
+}
+
+.add-cart {
+  border: 0;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin: 10px 10px;
+  background: #CCD5AE;
+  cursor: pointer;
+}
+
+.cart-icon {
+  position: absolute;
+  right: 1%;
+  top: 2%;
+}
+
+.form-product {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.form-product input {
+  padding: 10px 40px;
+  margin-bottom: 20px;
+}
+
+.submit {
+  margin-bottom: 200px;
+  text-align: center;
+  border: 0;
+  border-radius: 5px;
+  border: 0;
+  padding: 5px 16px;
+  background-color: #A2678A;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 499;
+}
+
+.table-product {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 0;
+  font-family: 'pinPops', sans-serif;
+  position: relative;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 16px;
+}
+
+.ellipsis1 {
+  position: relative;
+}
+
+.ellipsis:before {
+  content: ' ';
+  visibility: hidden;
+}
+
+.ellipsis {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-view {
+  display: block;
+}
+
+.edit-button {
+  text-align: center;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: #526D82;
+  border: 0;
+  font-family: 'Inclusive Sans', sans-serif;
+  padding: 5px 10px;
+}
+
+.edit-button:hover {
+  background: #657c8d;
+  transition: .3s;
+}
+
+.delete-button {
+  border-radius: 5px;
+  font-size: 15px;
+  background-color: rgb(167, 4, 4);
+  border: 0;
+  font-family: 'Inclusive Sans', sans-serif;
+  padding: 5px 10px;
+}
+
+.delete-button:hover {
+  background-color: red;
+  transition: .3s;
+}
