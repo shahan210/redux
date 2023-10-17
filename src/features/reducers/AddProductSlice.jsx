@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-const initialState = {
+export const initialState = {
     products: []
 }
 const AddProductSlice = createSlice({
@@ -14,7 +14,6 @@ const AddProductSlice = createSlice({
            reducer(state, action) {
             const value = action.payload
             const product = state.products.map(itm=>itm.id===value.id ? {...itm,product:value.product,price:value.price,url:value.url}:itm)
-            console.log(product);
             return{
                 ...state,
                 products: product
@@ -35,7 +34,6 @@ const AddProductSlice = createSlice({
 
             }
         },
-
     }
 })
 

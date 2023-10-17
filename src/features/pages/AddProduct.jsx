@@ -28,9 +28,11 @@ export default function AddProduct() {
         setErrors(validationErrors)
         if (title == "") {
             validationErrors.title = "Enter a Product Name "
+            return
         }
         if (price == 0 && price == "") {
             validationErrors.price = "Enter an amount"
+            return
         }
         if (url == "") {
             validationErrors.url = "Enter an url"
@@ -51,7 +53,6 @@ export default function AddProduct() {
     }
     const updateProduct = (e) => {
         e.preventDefault()
-        const productCopy = product.map((itm) => itm.id === editId)
         dispatch(updateProducts(title, price, url,editId))
         setPrice('')
         setTitle('')
@@ -66,7 +67,7 @@ export default function AddProduct() {
         <div style={{ position: 'relative' }}>
             <form className='form-product'>
                 <div>
-                    <Textbox type='text' placeholder='Product' value={title || ""} onChange={(e) => setTitle(e.target.value)} />
+                    <Textbox type='text' placeholder='Title' value={title || ""} onChange={(e) => setTitle(e.target.value)} />
                     {errors.title && <p style={{ fontFamily: "'pinPops', sans-serif", fontSize: 12, color: 'red' }}><AiFillExclamationCircle /> {errors.title}</p>}
                 </div>
                 <div>
