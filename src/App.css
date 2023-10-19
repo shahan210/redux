@@ -5,12 +5,14 @@
 
 .grid-display {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4,1fr);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card {
   transition: 0.3s;
-  height: 430px;
+  height: 435px;
   width: 240px;
   border-radius: 10px;
   margin: 20px 20px;
@@ -73,6 +75,7 @@ body {
   margin: 5px 5px;
   background: #CCD5AE;
   cursor: pointer;
+  height: 30px;
 }
 
 .cart-icon {
@@ -175,19 +178,37 @@ td {
 .counter{
   border-radius: 2px;
   height: 21px;
+  padding-bottom: 2px;
   margin :2px;
+  font-size: 16px;
   width: 20px;
   border: 1px solid rgb(216, 216, 216);
   background: white;
   cursor: pointer;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.block{
+  display: flex;
+  justify-content: space-between;
+}
+.count-btn{
+  display: flex;
+  align-items: center;
 }
 .counter:active{
-background: #362FD9;
+background: rgb(236, 236, 236);
 color: white;
 }
 .input{
   width:20px;
   text-align:center;
+}
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .cart-image{
   width: 500px; 
@@ -195,4 +216,11 @@ color: white;
   position: absolute;
   top: 18%;
   right: 34%;
+}
+.cart-image1{
+  width: 800px; 
+  height: 500px;
+  position: absolute;
+  top: 18%;
+  right: 24%;
 }

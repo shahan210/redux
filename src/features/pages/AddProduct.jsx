@@ -16,6 +16,11 @@ export default function AddProduct() {
     const [editId, setEditId] = useState(null);
     const [errors, setErrors] = useState({});
 
+    const clearAllState =()=>{
+        setPrice('')
+        setTitle('')
+        setUrl('')
+    }
     const submitProduct = (e) => {
         e.preventDefault();
         let productDetails = {
@@ -27,7 +32,7 @@ export default function AddProduct() {
         const validationErrors = {}
         setErrors(validationErrors)
         if (title == "") {
-            validationErrors.title = "Enter a Product Name "
+            validationErrors.title = "Enter a Product Name"
             return
         }
         if (price == 0 && price == "") {
@@ -38,10 +43,9 @@ export default function AddProduct() {
             validationErrors.url = "Enter an url"
             return
         }
+        
         dispatch(addProduct(productDetails))
-        setPrice('')
-        setTitle('')
-        setUrl('')
+        clearAllState()
     }
     const edit = (id) => {
         const value = product.map((itm) => itm)
@@ -53,13 +57,11 @@ export default function AddProduct() {
     }
     const updateProduct = (e) => {
         e.preventDefault()
+        console.log(title, price, url,editId,'y');
         dispatch(updateProducts(title, price, url,editId))
-        setPrice('')
-        setTitle('')
-        setUrl('')
+        clearAllState()
         setEditId(null)
     }
-
     const deleteRow = (id) => {
         dispatch(deleteProduct(id));
     }
@@ -80,6 +82,7 @@ export default function AddProduct() {
                     {errors.url && <p style={{ fontFamily: "'pinPops', sans-serif", fontSize: 12, color: 'red' }}><AiFillExclamationCircle /> {errors.url}</p>}
 
                 </div>
+                
                 <Buttons onClick={editId === null ? submitProduct : updateProduct} name={editId === null ? "Submit" : "Update"} className='submit' />
             </form>
             <table className='table-product'>
@@ -103,6 +106,7 @@ export default function AddProduct() {
                                     <td className='ellipsis1' >
                                         <span className='ellipsis ' >{item.url}</span>
                                     </td>
+                                    
                                     <td>
                                         <Buttons onClick={() => edit(item.id)} className='edit-button' name="Edit" />
                                         <Buttons onClick={() => deleteRow(item.id)} name="Delete" className='delete-button ' />

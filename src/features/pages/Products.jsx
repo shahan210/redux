@@ -1,34 +1,50 @@
-import { useDispatch,useSelector } from 'react-redux'
-import { FaIndianRupeeSign } from 'react-icons/fa6'
-import { addToCart } from '../reducers/CartSlice'
+import { useDispatch, useSelector } from 'react-redux'
+// import { FaIndianRupeeSign } from 'react-icons/fa6'
 import { selectAllProduct } from '../reducers/AddProductSlice'
+import { useEffect } from 'react'
+// import { addToCart } from '../reducers/CartSlice'
+import { selectAllCart } from '../reducers/CartSlice'
+import {  Card } from '../../components/Index'
+// import { increment, decrement } from '../reducers/CartSlice'
+
 export default function Products() {
     const product = useSelector(selectAllProduct)
-    
-    const dispatch = useDispatch()
-    const addToCartAction = (product) => {
-        dispatch(addToCart(product))
+    const cart = useSelector(selectAllCart)
+    useEffect(() => {
+        productEmpty()
+    }, [product, cart])
+    const productEmpty = () => {
+        if (product.length > 0) {
+            document.getElementById('noData').style.display = 'none'
+        } else {
+            document.getElementById('noData').style.display = 'block'
+        }
     }
+    // const inCart = ()=> {
+        
+    // }
+    // const decrementByOne = (id) => {
+    //     dispatch(decrement(id))
+    // }
+    // const incrementByOne = (id) => {
+    //     dispatch(increment(id))
+    // }
+    // const dispatch = useDispatch()
+    // const addToCartAction = (product) => {
+    //     dispatch(addToCart(product))
+    // }
     return (
         <>
-            <div className='order'>
-                <div className='grid-display'>
-                    {
-                        product !== null && product.map((product, i) => {
-                            return (
-                                <div className="card" key={i}>
-                                    <img className='image-card' src={product.url}></img>
-                                    <h4 style={{ paddingLeft: 8 }}>{product.product.slice(0, 25)}</h4>
-                                    <div style={{ paddingLeft: 5 }}><FaIndianRupeeSign className='rs-icon' />{product.price}</div>
-                                    <div>
-                                        <button className='add-cart' onClick={() => addToCartAction(product)} >Add to cart</button>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
+            <img src='https://bagbazaars.com/assets/img/no-product-found.png' className="cart-image1 " id='noData' />
+            <div className='grid-display'>
+            {product.map((pro)=>{
+                return(
+                    
+                    <Card key={pro.id} data={pro} />
+                )
+            })}
             </div>
+           
         </>
     )
 }
