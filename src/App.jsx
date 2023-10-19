@@ -1,8 +1,6 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Products from './features/pages/Products'
-import Cart from './features/pages/Cart'
-import AddProduct from './features/pages/AddProduct'
+import { AddProduct,Products,Cart,IndiProduct } from './features/Index'
 import { Layout } from './components/Index'
 function App() {
   return (
@@ -11,9 +9,10 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
 
-            <Route index element={<AddProduct />} />
-            <Route path='product' element={<Products />} />
-            <Route path='cart' element={<Cart />} />
+            <Route path='/addproduct' element={<AddProduct />} />
+            <Route  index element={<Products />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/indiProduct/:id' element={<IndiProduct />} />
           </Route>
         </Routes>
       </BrowserRouter>

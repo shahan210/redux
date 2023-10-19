@@ -15,8 +15,9 @@ export default function Cart() {
   }, [cartValues])
 
   const totalPrice = () => {
-    const price = cartValues.reduce(function (prev, current) {
-      return prev + + current.price
+    const countPrice = cartValues.map((itm)=>itm.price*itm.cartCount)
+    const price = countPrice.reduce(function (prev, current) {
+      return prev + + current
     }, 0)
     setTotal(price)
   }
@@ -63,7 +64,7 @@ export default function Cart() {
         </div>
       </div>
       <div>
-        <h2 id='Tot' style={{ textAlign: 'center' }}>Total = <FaIndianRupeeSign className='rs-icon' />{total}</h2>
+        <h2 id='Tot' style={{ textAlign: 'center' }}>Total = <FaIndianRupeeSign className='rs-icon' />{total} /-</h2>
       </div>
     </>
   )

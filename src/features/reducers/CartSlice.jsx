@@ -22,7 +22,6 @@ const CartSlice = createSlice({
         },
         increment(state, action) {
             const getProduct = state.find(itm => itm.id === action.payload)
-            console.log(getProduct);
             if (getProduct) {
                 getProduct.cartCount++
             } else {
@@ -33,22 +32,21 @@ const CartSlice = createSlice({
             const getProduct = state.find(itm => itm.id === action.payload)
             if (getProduct) {
                 getProduct.cartCount--
-                console.log( getProduct.cartCount);
-                if (getProduct.cartCount === 0) {
-                    console.log('l');
-                    return state.filter((item) => item.id !== action.payload)
-                }
+                console.log(getProduct.cartCount);
             } else {
                 return state
             }
         },
+        removeFromCart(state, action) {
+            return(state.filter((item) => item.id !== action.payload))
+        },
         deleteFromCart(state, action) {
-            return state.filter((item) => item.id !== action.payload)
+            return(state.filter((item) => item.id !== action.payload))
         }
     }
 })
 export const selectAllCart = (state) => state.cart;
 
-export const { addToCart, deleteFromCart, increment, decrement } = CartSlice.actions;
+export const { addToCart, deleteFromCart, increment, decrement,removeFromCart } = CartSlice.actions;
 
 export default CartSlice.reducer 

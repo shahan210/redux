@@ -57,7 +57,6 @@ export default function AddProduct() {
     }
     const updateProduct = (e) => {
         e.preventDefault()
-        console.log(title, price, url,editId,'y');
         dispatch(updateProducts(title, price, url,editId))
         clearAllState()
         setEditId(null)

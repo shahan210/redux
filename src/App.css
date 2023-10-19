@@ -5,7 +5,7 @@
 
 .grid-display {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -13,7 +13,7 @@
 .card {
   transition: 0.3s;
   height: 435px;
-  width: 240px;
+  width: 260px;
   border-radius: 10px;
   margin: 20px 20px;
   border: 1px solid rgb(235, 233, 233);
@@ -25,7 +25,7 @@
 
 .image-card {
   border-radius: 10px;
-  width: 240px;
+  width: 260px;
   height: 310px;
 }
 
@@ -43,9 +43,11 @@
   height: 35px;
   margin: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
-.nav-itm1{
+
+.nav-itm1 {
   float: left;
   cursor: pointer;
   font-size: 20px;
@@ -53,15 +55,29 @@
   text-decoration: none;
   color: black;
   margin-right: 20px;
+  padding: 10px 20px;
 }
 
-.nav-itm{
+.nav-itm1.active {
+  background-color: #cdcdcd;
+  border-radius: 6px;
+  transition: .5s;
+}
+
+.nav-itm {
   float: left;
   cursor: pointer;
   font-size: 25px;
   text-align: center;
   text-decoration: none;
   color: black;
+  padding: 5px 10px;
+}
+
+.nav-itm.active {
+  background-color: #cdcdcd;
+  border-radius: 6px;
+  transition: .5s;
 }
 
 body {
@@ -78,11 +94,12 @@ body {
   height: 30px;
 }
 
-.cart-icon {
+/* .cart-icon {
   position: absolute;
   right: 1%;
   top: 2%;
-}
+} */
+
 
 .form-product {
   text-align: center;
@@ -175,11 +192,11 @@ td {
   transition: .3s;
 }
 
-.counter{
+.counter {
   border-radius: 2px;
   height: 21px;
   padding-bottom: 2px;
-  margin :2px;
+  margin: 2px;
   font-size: 16px;
   width: 20px;
   border: 1px solid rgb(216, 216, 216);
@@ -189,38 +206,59 @@ td {
   cursor: pointer;
   justify-content: center;
 }
-.block{
+
+.block {
   display: flex;
   justify-content: space-between;
 }
-.count-btn{
+
+.count-btn {
   display: flex;
   align-items: center;
 }
-.counter:active{
-background: rgb(236, 236, 236);
-color: white;
+
+.counter:active {
+  background: rgb(236, 236, 236);
+  color: white;
 }
-.input{
-  width:20px;
-  text-align:center;
+
+.input {
+  width: 20px;
+  text-align: center;
 }
+
 .input::-webkit-outer-spin-button,
 .input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.cart-image{
-  width: 500px; 
+
+.cart-image {
+  width: 500px;
   height: 500px;
   position: absolute;
   top: 18%;
   right: 34%;
 }
-.cart-image1{
-  width: 800px; 
+
+.cart-image1 {
+  width: 800px;
   height: 500px;
   position: absolute;
   top: 18%;
   right: 24%;
+}
+.arrange{
+  position: relative;
+  top: 20%;
+}
+.container{
+ 
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 3px 3px 10px 10px rgba(178, 178, 178, 0.2);
+}
+
+.indi-img{
+  width: 100px;
 }
